@@ -94,3 +94,48 @@ main .personagem .imagem {
     transform: scale(1.3);
     box-shadow: 0 0 10px #d9d9d9;
 }
+
+.nome-personagem {
+    color: #000; /* Cor padrão */
+}
+
+/* Estilos específicos para cada personagem */
+.personagem:nth-child(1) .nome-personagem {
+    color: #cf0c9b; /* Chopper */
+}
+
+.personagem:nth-child(2) .nome-personagem {
+    color: #07f03e; /* Zoro */
+}
+
+.personagem:nth-child(3) .nome-personagem {
+    color: #ea7a0a; /* Luffy */
+}
+
+.personagem:nth-child(4) .nome-personagem {
+    color: #FF69B4; /* Nami */
+}
+
+.personagem:nth-child(5) .nome-personagem {
+    color: #00eaff; /* Sanji */
+}
+
+.personagem:nth-child(1) .descricao {
+    color: #ff00ff; /* Cor para Tony Chopper */
+}
+
+.personagem:nth-child(2) .descricao {
+    color: #08f740;
+}
+
+.personagem:nth-child(3) .descricao {
+    color: #ea7a0a;
+}
+
+.personagem:nth-child(4) .descricao {
+    color: #ff88c4;
+}
+
+.personagem:nth-child(5) .descricao {
+    color: #09ebfb;
+}
