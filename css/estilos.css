@@ -1,141 +1,208 @@
 body {
     background-color: black;
     overflow: hidden;
-}
-
-main::after {
-    content: "";
-    position: fixed;
+    margin: 0;
+    font-family: sans-serif;
+  }
+  
+  .personagens {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  /* Cada personagem ocupa toda a tela, mas começa invisível */
+  .personagem {
+    position: absolute;
     top: 0;
     left: 0;
-    min-height: 100vh;
-    width: 80vw;
-
-    background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0) 65%) no-repeat;
-}
-
-main .personagem {
-    display: none;
-    height: 100vh;
-}
-
-main .personagem.selecionado {
-    display: block;
-}
-
-main .personagem .imagem {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out; /* ← animação suave */
+  }
+  
+  /* Personagem visível */
+  .personagem.selecionado {
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+  }
+  
+  .imagem {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.conteudo {
+  }
+  
+  .botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 190px;
+    height: 100vh;
+    background-color: rgba(53, 18, 18, 0.651);
+    z-index: 9999;
+    gap: 15px;
+    padding: 30px 0;
+  }
+  
+  .botao {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+  }
+  
+  .botao img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  
+  .botao:hover {
+    transform: scale(1.1);
+  }
+  
+  .botao.selecionado {
+    box-shadow: 0 0 10px #fff;
+    transform: scale(1.15);
+  }
+  
+  .conteudo {
     position: absolute;
     top: 0;
-    left: 120px;
+    left: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: 100vh;
     max-width: 380px;
-    z-index: 1;
-}
-
-.conteudo .nome-personagem {
+    z-index: 2; 
+  }
+  
+  .conteudo .nome-personagem {
     color: white;
     font-size: 48px;
-    font-family: "Secular One";
+    font-family: "Secular One", sans-serif;
     font-weight: 400;
     margin-bottom: 20px;
-}
-
-.conteudo .descricao {
+  }
+  
+  .conteudo .descricao {
     color: white;
-    font-family: "Rubik";
+    font-family: "Rubik", sans-serif;
     line-height: 24px;
-}
-
-.conteudo .logo {
+  }
+  
+  .conteudo .logo {
     background-image: url("../imagens/one-piece-logo.png");
     background-size: cover;
     height: 100px;
     width: 230px;
     margin-bottom: 35px;
-}
-
-.botoes {
-    position: fixed;
-    top: 0;
-    right: 0;
-    display: flex;
-
-    flex-direction: column;
-    min-height: 100vh;
-    width: 180px;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.botoes .botao {
-    border: none;
-    background: #000000;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.botoes .botao img {
-    border-radius: 50%;
-}
-
-.botoes .botao.selecionado {
-    transform: scale(1.3);
-    box-shadow: 0 0 10px #d9d9d9;
-}
-
-.nome-personagem {
-    color: #000; /* Cor padrão */
-}
-
-/* Estilos específicos para cada personagem */
-.personagem:nth-child(1) .nome-personagem {
-    color: #cf0c9b; /* Chopper */
-}
-
-.personagem:nth-child(2) .nome-personagem {
-    color: #07f03e; /* Zoro */
-}
-
-.personagem:nth-child(3) .nome-personagem {
-    color: #ea7a0a; /* Luffy */
-}
-
-.personagem:nth-child(4) .nome-personagem {
-    color: #FF69B4; /* Nami */
-}
-
-.personagem:nth-child(5) .nome-personagem {
-    color: #00eaff; /* Sanji */
-}
-
-.personagem:nth-child(1) .descricao {
-    color: #ff00ff; /* Cor para Tony Chopper */
-}
-
-.personagem:nth-child(2) .descricao {
+  }
+  
+  /* Nome e descrição do Chopper */
+  .personagem:nth-child(1) .nome-personagem {
+    color: #cf0c9b;
+  }
+  
+  .personagem:nth-child(1) .descricao {
+    color: #ff00ff;
+  }
+  
+  /* Zoro */
+  .personagem:nth-child(2) .nome-personagem {
+    color: #07f03e;
+  }
+  
+  .personagem:nth-child(2) .descricao {
     color: #08f740;
-}
-
-.personagem:nth-child(3) .descricao {
+  }
+  
+  /* Luffy */
+  .personagem:nth-child(3) .nome-personagem {
     color: #ea7a0a;
-}
-
-.personagem:nth-child(4) .descricao {
+  }
+  
+  .personagem:nth-child(3) .descricao {
+    color: #ea7a0a;
+  }
+  
+  /* Nami */
+  .personagem:nth-child(4) .nome-personagem {
+    color: #ff69b4;
+  }
+  
+  .personagem:nth-child(4) .descricao {
     color: #ff88c4;
-}
-
-.personagem:nth-child(5) .descricao {
-    color: #09ebfb;
-}
+  }
+  
+  /*Usopp */
+  .personagem:nth-child(5) .nome-personagem {
+    color: #ffee00;
+  }
+  
+  .personagem:nth-child(5) .descricao {
+    color: #fffb05;
+  }
+  
+  /*Robin */
+  .personagem:nth-child(6) .nome-personagem {
+      color: #6719cc;
+  }
+    
+  .personagem:nth-child(6) .descricao {
+      color: #9f5af8;
+  }
+  
+  /*Sanji */
+  .personagem:nth-child(7) .nome-personagem {
+      color: #08c7f7;
+  }
+  
+  .personagem:nth-child(7) .descricao {
+      color: #08eff7;
+  }
+  
+  /*Franky */
+  .personagem:nth-child(8) .nome-personagem {
+      color: #1d04fffb;
+  }
+  
+  .personagem:nth-child(8) .descricao {
+      color: #0595f5;
+  }
+  
+  /*Brook */
+  .personagem:nth-child(9) .nome-personagem{
+      color: aquamarine;
+  }
+  
+  .personagem:nth-child(9) .descricao {
+      color: aquamarine;
+  }
+  /* Nome do personagem */
+  .conteudo .nome-personagem {
+    width: max-content; 
+    margin-bottom: 15px; 
+   
+  }
+  
+  /* Descrição do personagem */
+  .conteudo .descricao {
+    background-color: rgba(7, 6, 6, 0.89); 
+    padding: 15px;
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(17, 15, 15, 0.5);  
+    color: rgba(235, 212, 212, 0.699);  
+    font-size: 16px; 
+    line-height: 1.6; 
+  }

@@ -32,7 +32,7 @@
     }
 
     .botoes .botao img {
-        max-width: 60px;
+        max-width: 35px;
     }
 }
 
@@ -43,19 +43,19 @@
 
     .conteudo .logo {
         width: 170px;
-        height: 75px;
+        height: 80px;
     }
 
     .conteudo .nome-personagem {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     .botoes {
-        padding: 20px;
-        top: -10%;
+        padding: 15px;
+        top: -0%;
     }
 
     .botoes .botao img {
-        max-width: 50px;
+        max-width: 26px;
     }
 }
