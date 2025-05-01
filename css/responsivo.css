@@ -47,15 +47,15 @@
     }
 
     .conteudo .nome-personagem {
-        font-size: 30px;
+        font-size: 35px;
     }
 
     .botoes {
-        padding: 15px;
-        top: -0%;
+        padding: 35px;
+        top: -10%;
     }
 
     .botoes .botao img {
-        max-width: 26px;
+        max-width: 25px;
     }
 }
